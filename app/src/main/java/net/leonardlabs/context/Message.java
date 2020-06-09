@@ -21,7 +21,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+aLong with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
 
@@ -29,59 +29,46 @@ package net.leonardlabs.context;
 
 import java.util.Date;
 
-class Message {
+public class Message {
 
-    private long id;
-    private String uniqueId;
-    private int encryptedId;
+    private Long id;
+    private Long contactId;
     private String email;
-    private String name;
-    private Date sentFromSenderAt;
-    private Date receivedAt;
-    private String status;
+    private String uniqueId;
+    private Integer encryptedId;
     private boolean incoming;
+    private Date sentAt;
+    private Date receivedAt;
     private String hmac;
     private String body;
 
-    Message () {
-    }
-
-    Message(long id, String uniqueId, int encryptedId, String email, String name, Date sentFromSenderAt, Date receivedAt, String status, boolean incoming, String hmac, String body) {
+    public Message(Long id, Long contactId, String email, String uniqueId, Integer encryptedId, boolean incoming, Date sentAt, Date receivedAt, String hmac, String body) {
         this.id = id;
+        this.contactId = contactId;
+        this.email = email;
         this.uniqueId = uniqueId;
         this.encryptedId = encryptedId;
-        this.email = email;
-        this.name = name;
-        this.sentFromSenderAt = sentFromSenderAt;
-        this.receivedAt = receivedAt;
-        this.status = status;
         this.incoming = incoming;
+        this.sentAt = sentAt;
+        this.receivedAt = receivedAt;
         this.hmac = hmac;
         this.body = body;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getUniqueId() {
-        return uniqueId;
+    public Long getContactId() {
+        return contactId;
     }
 
-    public void setUniqueId(String uniqueId) {
-        this.uniqueId = uniqueId;
-    }
-
-    public int getEncryptedId() {
-        return encryptedId;
-    }
-
-    public void setEncryptedId(int encryptedId) {
-        this.encryptedId = encryptedId;
+    public void setContactId(Long contactId) {
+        this.contactId = contactId;
     }
 
     public String getEmail() {
@@ -92,36 +79,20 @@ class Message {
         this.email = email;
     }
 
-    public String getName() {
-        return name;
+    public String getUniqueId() {
+        return uniqueId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUniqueId(String uniqueId) {
+        this.uniqueId = uniqueId;
     }
 
-    public Date getSentFromSenderAt() {
-        return sentFromSenderAt;
+    public Integer getEncryptedId() {
+        return encryptedId;
     }
 
-    public void setSentFromSenderAt(Date sentFromSenderAt) {
-        this.sentFromSenderAt = sentFromSenderAt;
-    }
-
-    public Date getReceivedAt() {
-        return receivedAt;
-    }
-
-    public void setReceivedAt(Date receivedAt) {
-        this.receivedAt = receivedAt;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setEncryptedId(Integer encryptedId) {
+        this.encryptedId = encryptedId;
     }
 
     public boolean isIncoming() {
@@ -130,6 +101,22 @@ class Message {
 
     public void setIncoming(boolean incoming) {
         this.incoming = incoming;
+    }
+
+    public Date getSentAt() {
+        return sentAt;
+    }
+
+    public void setSentAt(Date sentAt) {
+        this.sentAt = sentAt;
+    }
+
+    public Date getReceivedAt() {
+        return receivedAt;
+    }
+
+    public void setReceivedAt(Date receivedAt) {
+        this.receivedAt = receivedAt;
     }
 
     public String getHmac() {
